@@ -1,0 +1,18 @@
+span{
+    background-color:aliceblue;
+}
+.light{
+    color:azure;
+}
+.medium{
+    color:lightgrey
+}
+#linkModify{
+    text-decoration: none;
+    color:aliceblue
+}
+body{
+    background-color:slategrey;
+    font-family:'Courier New', Courier, monospace;
+    text-align:center
+}
