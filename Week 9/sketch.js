@@ -21,14 +21,14 @@ function draw()
     rect(width / 2, height / 2, headWidth, headHeight, cornerRadius);
 
     //beanie
-    fill(255, 255, 0);
+    fill(51, 25, 0);
     ellipse(width / 2, height / 2 - headHeight / 2 - 10, headWidth + 20, headHeight / 3);
 
     //face
     drawEye(width / 2 - headWidth / 4, height / 2 - headHeight / 4);
     drawEye(width / 2 + headWidth / 4, height / 2 - headHeight / 4);
-    drawEyebrows(width / 2 - headWidth / 4, height / 2 - headHeight / 5 - 10);
-    drawEyebrows(width / 2 + headWidth / 4, height / 2 - headHeight / 5 - 10);
+    drawEyebrows(width / 2 - headWidth / 4, height / 2 - headHeight / 5 - 30);
+    drawEyebrows(width / 2 + headWidth / 4, height / 2 - headHeight / 5 - 30);
     drawNose(width / 2, height / 2 + headHeight / 20);
     drawMouth(width / 2, height / 2 + headHeight / 4);
     drawMustache(width / 2, height / 2 + headHeight / 6);
