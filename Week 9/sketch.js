@@ -7,7 +7,7 @@ function draw()
 {
     background(224, 224, 224);
     textSize(22)
-    text("SELF PORTRAIT", 100, 25);
+    text("SELF PORTRAIT", 112, 25);
 
     //head
 
