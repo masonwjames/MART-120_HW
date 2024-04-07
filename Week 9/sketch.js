@@ -40,6 +40,8 @@ function drawEye(x, y) {
 }
 
 function drawNose(x, y) {
-    fill(240, 200, 150); // Same color as the head
-    triangle(x, y, x - 10, y + 20, x + 10, y + 20); // Adjust the size and position as needed
-  }
+    fill(240, 200, 150);
+    stroke(0);
+    strokeWeight(2);
+    triangle(x, y - 10, x - 10, y + 20, x + 10, y + 20); 
+}
