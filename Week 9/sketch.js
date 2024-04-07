@@ -23,8 +23,12 @@ function draw()
     //face
     drawEye(width / 2 - headWidth / 4, height / 2 - headHeight / 4);
     drawEye(width / 2 + headWidth / 4, height / 2 - headHeight / 4);
-    drawNose(width / 2, height / 2 + headHeight / 12);
-    drawMouth(width / 2, height / 2 + headHeight / 3.5);
+    drawNose(width / 2, height / 2 + headHeight / 8);
+    drawMouth(width / 2, height / 2 + headHeight / 4);
+    drawMustache(width / 2, height / 2 + headHeight / 6);
+    drawEar(width / 2 - headWidth / 2, height / 2);
+    drawEar(width / 2 + headWidth / 2, height / 2);
+
 }
 
 function drawEye(x, y) {
@@ -52,4 +56,17 @@ function drawMouth(x, y) {
     rect(x - 35, y - 5, 20, 30, 5); 
     rect(x - 5, y - 5, 20, 30, 5); 
     rect(x + 25, y - 5, 20, 30, 5); 
+}
+
+function drawMustache(x, y) {
+    fill(0); 
+    rect(x, y, 100, 20, 5); 
+  }
+
+function drawEar(x, y) {
+    fill(240, 200, 150);
+    ellipse(x, y, 40, 60);
+    // Draw stud piercing
+    fill(255);
+    ellipse(x, y + 25, 10, 10);
 }
