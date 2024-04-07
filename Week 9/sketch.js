@@ -8,7 +8,10 @@ function draw()
     background(224, 224, 224);
     textSize(22)
     text("SELF PORTRAIT", 112, 30);
+}
 
+function draw()
+{
     //head
     fill(240, 200, 150);
     let headWidth = 200;
@@ -18,13 +21,21 @@ function draw()
     rect(width / 2, height / 2, headWidth, headHeight, cornerRadius);
 
     //eyes
-    fill(0, 255, 0); 
-  let eyeSize = 40;
-  let eyeX = width / 2 - headWidth / 4; 
-  let eyeY = height / 2 - headHeight / 4;
-  ellipse(eyeX, eyeY, eyeSize, eyeSize);
-  let eyeX2 = width / 2 + headWidth / 4; 
-  ellipse(eyeX2, eyeY, eyeSize, eyeSize);
-
-
+    drawEye(width / 2 - headWidth / 4, height / 2 - headHeight / 4);
+    drawEye(width / 2 + headWidth / 4, height / 2 - headHeight / 4);
 }
+
+function drawEye(x, y) {
+  // Draw whites of the eyes
+  fill(255);
+  ellipse(x, y, 60, 40);
+
+  // Draw forest green iris
+  fill(34, 139, 34);
+  ellipse(x, y, 40, 40);
+
+  // Draw black pupil
+  fill(0);
+  ellipse(x, y, 20, 20);
+}
+    
