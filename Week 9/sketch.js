@@ -24,7 +24,7 @@ function draw()
     drawEye(width / 2 - headWidth / 4, height / 2 - headHeight / 4);
     drawEye(width / 2 + headWidth / 4, height / 2 - headHeight / 4);
     drawNose(width / 2, height / 2 + headHeight / 12);
-    drawMouth(width / 2, height / 2 + headHeight / 3.5;
+    drawMouth(width / 2, height / 2 + headHeight / 3.5);
 }
 
 function drawEye(x, y) {
