@@ -5,11 +5,6 @@ function setup()
 
 function draw() {
     background(200);
-    //title
-    fill(0)
-    textSize(32);
-    textAlign(CENTER, TOP);
-    text("SELF PORTRAIT", width/2, 20);
     //head
     drawHead(width /2, height / 2 + 50);
     //name
@@ -88,4 +83,12 @@ function drawEyebrows(x, y) {
     stroke(0); 
     strokeWeight(5); 
     line(x - 20, y - 10, x + 20, y - 10); 
+}
+
+function draw() {
+    //title
+    fill(0)
+    textSize(32);
+    textAlign(CENTER, TOP);
+    text("SELF PORTRAIT", width/2, 20);
 }
