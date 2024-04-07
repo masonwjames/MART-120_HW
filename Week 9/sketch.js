@@ -6,11 +6,8 @@ function setup()
 function draw() 
 {
     background(224, 224, 224);
-    textSize(22);
-    let textWidth = textWidth("SELF PORTRAIT");
-    let x = (width - textWidth) / 2;
-    let y = height / 2;
-    text("SELF PORTRAIT", x, y);
+    textSize(22)
+    text("SELF PORTRAIT", 80, 10);
 
     //head
 
