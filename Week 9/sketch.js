@@ -38,4 +38,8 @@ function drawEye(x, y) {
   fill(0);
   ellipse(x, y, 20, 20);
 }
-    
+
+function drawNose(x, y) {
+    fill(240, 200, 150); // Same color as the head
+    triangle(x, y, x - 10, y + 20, x + 10, y + 20); // Adjust the size and position as needed
+  }
