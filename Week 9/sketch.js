@@ -23,8 +23,8 @@ function draw()
     //face
     drawEye(width / 2 - headWidth / 4, height / 2 - headHeight / 4);
     drawEye(width / 2 + headWidth / 4, height / 2 - headHeight / 4);
-    drawNose(width / 2, height / 2 + headHeight / 20);
-    drawMouth(width / 2, height / 2 + headHeight / 6);
+    drawNose(width / 2, height / 2 + headHeight / 12);
+    drawMouth(width / 2, height / 2 + headHeight / 3.5;
 }
 
 function drawEye(x, y) {
@@ -40,15 +40,16 @@ function drawNose(x, y) {
     fill(215, 175, 125);
     stroke(0);
     strokeWeight(2);
-    triangle(x, y - 10, x - 10, y + 20, x + 10, y + 20); 
+    triangle(x, y - 10, x - 10, y + 30, x + 10, y + 30); 
 }
 
 function drawMouth(x, y) {
     fill(255, 192, 203); 
     noStroke();
-    ellipse(x, y, 70, 30); 
+    ellipse(x, y, 100, 50); 
     // Draw teeth
     fill(255);
-    rect(x - 20, y, 10, 15, 5); 
-    rect(x + 10, y, 10, 15, 5); 
+    rect(x - 35, y - 5, 20, 30, 5); 
+    rect(x - 5, y - 5, 20, 30, 5); 
+    rect(x + 25, y - 5, 20, 30, 5); 
 }
