@@ -40,12 +40,18 @@ function drawEye(x, y) {
 }
 
 function drawNose(x, y) {
-    fill(240, 200, 150);
+    fill(215, 175, 125);
     stroke(0);
     strokeWeight(2);
     triangle(x, y - 10, x - 10, y + 20, x + 10, y + 20); 
-    // Draw nostrils
-    fill(139, 69, 19);
-    ellipse(x - 5, y + 15, 5, 5); 
-    ellipse(x + 5, y + 15, 5, 5);
+}
+
+function drawMouth(x, y) {
+    fill(255, 192, 203); 
+    noStroke();
+    ellipse(x, y, 70, 30); 
+    // Draw teeth
+    fill(255);
+    rect(x - 20, y, 10, 15, 5); 
+    rect(x + 10, y, 10, 15, 5); 
 }
