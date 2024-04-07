@@ -23,7 +23,7 @@ function draw()
     //face
     drawEye(width / 2 - headWidth / 4, height / 2 - headHeight / 4);
     drawEye(width / 2 + headWidth / 4, height / 2 - headHeight / 4);
-    drawNose(width / 2, height / 2 + headHeight / 8);
+    drawNose(width / 2, height / 2 + headHeight / 12);
     drawMouth(width / 2, height / 2 + headHeight / 4);
     drawMustache(width / 2, height / 2 + headHeight / 6);
     drawEar(width / 2 - headWidth / 2, height / 2);
