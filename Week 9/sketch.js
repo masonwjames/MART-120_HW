@@ -45,6 +45,7 @@ function drawNose(x, y) {
     strokeWeight(2);
     triangle(x, y - 10, x - 10, y + 20, x + 10, y + 20); 
     // Draw nostrils
-  ellipse(x - 5, y + 15, 5, 5); 
-  ellipse(x + 5, y + 15, 5, 5);
+    fill(139, 69, 19);
+    ellipse(x - 5, y + 15, 5, 5); 
+    ellipse(x + 5, y + 15, 5, 5);
 }
