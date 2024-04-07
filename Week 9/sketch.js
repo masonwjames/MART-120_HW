@@ -3,11 +3,16 @@ function setup()
     createCanvas(400, 400);
 }
 
-function draw() 
-{
-    background(224, 224, 224);
-    textSize(22)
-    text("SELF PORTRAIT", 112, 30);
+function draw() {
+    background(200);
+    fill(0)
+    textSize(32);
+    textAlign(CENTER, TOP);
+    text("SELF PORTRAIT", width/2, 20);
+    fill(0);
+    textSize(20);
+    textAlign(CENTER, BOTTOM);
+    text("MASON RUSEK", width/2, height - 20);
 }
 
 function draw()
