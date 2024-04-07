@@ -5,19 +5,22 @@ function setup()
 
 function draw() {
     background(200);
+    //title
     fill(0)
     textSize(32);
     textAlign(CENTER, TOP);
     text("SELF PORTRAIT", width/2, 20);
+    //head
+    drawHead(width /2, height / 2 + 50);
+    //name
     fill(0);
     textSize(20);
     textAlign(CENTER, BOTTOM);
     text("MASON RUSEK", width/2, height - 20);
 }
 
-function draw()
+function drawHead(x, y)
 {
-    //head
     fill(240, 200, 150);
     let headWidth = 200;
     let headHeight = 250;
