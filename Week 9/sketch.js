@@ -20,21 +20,18 @@ function draw()
     rectMode(CENTER);
     rect(width / 2, height / 2, headWidth, headHeight, cornerRadius);
 
-    //eyes
+    //face
     drawEye(width / 2 - headWidth / 4, height / 2 - headHeight / 4);
     drawEye(width / 2 + headWidth / 4, height / 2 - headHeight / 4);
+    drawNose(width / 2, height / 2 + headHeight / 20);
+    drawMouth(width / 2, height / 2 + headHeight / 6);
 }
 
 function drawEye(x, y) {
-  // Draw whites of the eyes
   fill(255);
   ellipse(x, y, 60, 40);
-
-  // Draw forest green iris
   fill(34, 139, 34);
   ellipse(x, y, 40, 40);
-
-  // Draw black pupil
   fill(0);
   ellipse(x, y, 20, 20);
 }
