@@ -16,7 +16,15 @@ function draw()
     let cornerRadius = 20;
     rectMode(CENTER);
     rect(width / 2, height / 2, headWidth, headHeight, cornerRadius);
-    
+
+    //eyes
+    fill(0, 255, 0); 
+  let eyeSize = 40;
+  let eyeX = width / 2 - headWidth / 4; 
+  let eyeY = height / 2 - headHeight / 4;
+  ellipse(eyeX, eyeY, eyeSize, eyeSize);
+  let eyeX2 = width / 2 + headWidth / 4; 
+  ellipse(eyeX2, eyeY, eyeSize, eyeSize);
 
 
 }
