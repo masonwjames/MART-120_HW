@@ -8,8 +8,9 @@ var eyebrowY2;
 var eyebrowDirection1;
 var eyebrowDirection2;
 
+var beanieX;
 var beanieY;
-var beanieDirectionY = 1;
+var beanieDirectionX = 1;
 var beanieColor;
 
 var mustacheX;
@@ -31,8 +32,9 @@ function setup() {
     eyebrowDirection2 = -1; // Down
 
     // Set initial position and color of the beanie
+    beanieX = headX;
     beanieY = headY - headSize / 2 - 10;
-    beanieColor = color(random(255), random(255), random(255));
+    beanieColor = color(random(100, 150), random(50, 100), random(0)); // Initial brown color
 
     // Set initial position of the mustache
     mustacheX = headX;
@@ -63,11 +65,11 @@ function draw() {
         eyebrowDirection2 *= -1; // Reverse direction when reaching limits
     }
 
-    // Update beanie position and color
-    beanieY += beanieDirectionY;
-    if (beanieY <= headY - headSize / 2 - 20 || beanieY >= headY - headSize / 2) {
-        beanieDirectionY *= -1; // Reverse direction when hitting the limits
-        beanieColor = color(random(255), random(255), random(255)); // Change color randomly
+    // Update beanie position
+    beanieX += beanieDirectionX;
+    if (beanieX <= headX - headSize / 2 || beanieX >= headX + headSize / 2) {
+        beanieDirectionX *= -1; // Reverse direction when hitting the limits
+        beanieColor = color(random(100, 150), random(50, 100), random(0)); // Change color randomly
     }
 
     // Update mustache position
@@ -89,7 +91,7 @@ function draw() {
     //beanie
     fill(beanieColor);
     var beanieSize = headSize + 20;
-    ellipse(headX, beanieY, beanieSize, headSize / 3);
+    ellipse(beanieX, beanieY, beanieSize, headSize / 3);
 
     //face
     var eyeOffset = headSize / 4;
