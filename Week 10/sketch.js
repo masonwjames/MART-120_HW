@@ -1,10 +1,13 @@
-var headX = 250;
-var headY = 100;
+var headX;
+var headY;
 var headSize = 200; // Initial size of the head
 var sizeDirection = 2; // Direction of size change
 
 function setup() {
     createCanvas(400, 400);
+    // Set the initial position of the head to center of the canvas
+    headX = width / 2;
+    headY = height / 2;
 }
 
 function draw() {
