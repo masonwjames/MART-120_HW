@@ -1,7 +1,7 @@
 var headX;
 var headY;
-var headSize = 200; // Initial size of the head
-var sizeDirection = 2; // Direction of size change
+var headSize = 200; // inital head size
+var sizeDirection = 2; // direction of change
 
 var eyebrowY1;
 var eyebrowY2;
@@ -18,36 +18,38 @@ var mustacheY;
 var mustacheDirectionX = 1;
 var mustacheDirectionY = 1;
 
-var titleSize = 32; // Initial size of the title
-var titleDirection = 0.2; // Direction of size change
-var titleX = 200; // Initial x-coordinate of the title
-var titleY = 50; // Initial y-coordinate of the title
-var titleSpeed = 2; // Speed of title movement
+var titleSize = 32; // intial titile size
+var titleDirection = 0.2; // direction of change
+var titleX = 200; // intial x
+var titleY = 50; // intial y
+var titleSpeed = 2; // movement speed for title
 
-function setup() {
+function setup() 
+{
     createCanvas(400, 400);
-    // Set the initial position of the head to center of the canvas
+    // center canvas
     headX = width / 2;
     headY = height / 2;
 
-    // Set initial positions of the eyebrows
+    // intial eyebrow position
     eyebrowY1 = headY - headSize / 5 - 30;
     eyebrowY2 = headY - headSize / 5 - 30;
-    // Set initial direction of movement for the eyebrows
-    eyebrowDirection1 = 1; // Up
-    eyebrowDirection2 = -1; // Down
+    // intitial direction 
+    eyebrowDirection1 = 1; // up
+    eyebrowDirection2 = -1; // down
 
-    // Set initial position and color of the beanie
+    // intial beanie position
     beanieX = headX;
     beanieY = headY - headSize / 2 - 10;
     beanieColor = color(random(100, 150), random(50, 100), random(0)); // Initial brown color
 
-    // Set initial position of the mustache
+    // intial mustache position
     mustacheX = headX;
     mustacheY = headY + headSize / 6;
 }
 
-function draw() {
+function draw() 
+{
     background(200);
     //title
     fill(0);
@@ -55,54 +57,53 @@ function draw() {
     textAlign(CENTER, TOP);
     text("SELF PORTRAIT", titleX, titleY);
 
-    // Update title size
+    // update title size
     titleSize += titleDirection;
     if (titleSize >= 40 || titleSize <= 28) {
-        titleDirection *= -1; // Reverse the direction when reaching the size limits
+        titleDirection *= -1; 
     }
 
-    // Update title position in a square pattern
+    // square title pattern
     titleX += titleSpeed;
     titleY += titleSpeed;
 
     if (titleX + textWidth("SELF PORTRAIT") >= width || titleX <= 0) {
-        titleSpeed *= -1; // Reverse direction when hitting canvas edge
+        titleSpeed *= -1; 
     }
     if (titleY >= height || titleY <= 0) {
-        titleSpeed *= -1; // Reverse direction when hitting canvas edge
+        titleSpeed *= -1; 
     }
 
-    // Update head size
+    // update head size
     headSize += sizeDirection;
     if (headSize >= 250 || headSize <= 150) {
-        sizeDirection *= -1; // Reverse the direction when reaching the size limits
+        sizeDirection *= -1; /
     }
 
-    // Update eyebrow positions
+    // update eyebrow position
     eyebrowY1 += eyebrowDirection1;
     if (eyebrowY1 <= headY - headSize / 5 - 50 || eyebrowY1 >= headY - headSize / 5 - 10) {
-        eyebrowDirection1 *= -1; // Reverse direction when reaching limits
+        eyebrowDirection1 *= -1; 
     }
     eyebrowY2 += eyebrowDirection2;
     if (eyebrowY2 <= headY - headSize / 5 - 50 || eyebrowY2 >= headY - headSize / 5 - 10) {
-        eyebrowDirection2 *= -1; // Reverse direction when reaching limits
+        eyebrowDirection2 *= -1; 
     }
 
-    // Update beanie position
+    // update beanie position
     beanieX += beanieDirectionX;
     if (beanieX <= headX - headSize / 2 || beanieX >= headX + headSize / 2) {
-        beanieDirectionX *= -1; // Reverse direction when hitting the limits
+        beanieDirectionX *= -1; 
         beanieColor = color(random(100, 150), random(50, 100), random(0)); // Change color randomly
     }
 
-    // Update mustache position
+    // update mustache position
     mustacheX += mustacheDirectionX;
     mustacheY += mustacheDirectionY;
     if (mustacheX <= headX - headSize / 6 || mustacheX >= headX + headSize / 6) {
-        mustacheDirectionX *= -1; // Reverse direction when reaching limits
-    }
+        mustacheDirectionX *= -1; 
     if (mustacheY <= headY + headSize / 6 - 10 || mustacheY >= headY + headSize / 6 + 10) {
-        mustacheDirectionY *= -1; // Reverse direction when reaching limits
+        mustacheDirectionY *= -1; 
     }
 
     //head
@@ -135,7 +136,8 @@ function draw() {
     text("MASON RUSEK", width / 2, height - 20);
 }
 
-function drawEye(x, y) {
+function drawEye(x, y) 
+{
     fill(255);
     var eyeSize = 60;
     ellipse(x, y, eyeSize, eyeSize);
@@ -147,7 +149,8 @@ function drawEye(x, y) {
     ellipse(x, y, irisSize, irisSize);
 }
 
-function drawNose(x, y) {
+function drawNose(x, y) 
+{
     fill(215, 175, 125);
     stroke(0);
     strokeWeight(2);
@@ -155,13 +158,14 @@ function drawNose(x, y) {
     triangle(x, y - noseSize / 2, x - noseSize / 2, y + noseSize, x + noseSize / 2, y + noseSize);
 }
 
-function drawMouth(x, y) {
+function drawMouth(x, y) 
+{
     fill(255, 192, 203);
     noStroke();
     var mouthWidth = 100;
     var mouthHeight = 50;
     ellipse(x, y, mouthWidth, mouthHeight);
-    // Draw teeth
+    //draw teeth
     fill(255);
     var teethSize = 30;
     var teethOffset = 35;
@@ -170,25 +174,28 @@ function drawMouth(x, y) {
     rect(x + teethOffset, y - 5, teethSize, teethSize, 5);
 }
 
-function drawMustache(x, y) {
+function drawMustache(x, y) 
+{
     fill(0);
     var mustacheWidth = 100;
     var mustacheHeight = 20;
     rect(x, y, mustacheWidth, mustacheHeight, 5);
 }
 
-function drawEar(x, y) {
+function drawEar(x, y) 
+{
     fill(240, 200, 150);
     var earWidth = 40;
     var earHeight = 60;
     ellipse(x, y, earWidth, earHeight);
-    // Draw stud piercing
+    // draw stud piercing
     fill(255);
     var studSize = 10;
     ellipse(x, y + earHeight / 2.5, studSize, studSize);
 }
 
-function drawEyebrows(x, y) {
+function drawEyebrows(x, y) 
+{
     stroke(0);
     strokeWeight(5);
     var eyebrowLength = 20;
