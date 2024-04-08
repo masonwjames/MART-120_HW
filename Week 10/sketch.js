@@ -3,11 +3,23 @@ var headY;
 var headSize = 200; // Initial size of the head
 var sizeDirection = 2; // Direction of size change
 
+var eyebrowY1;
+var eyebrowY2;
+var eyebrow Direction1;
+var eyebrowDirection2;
+
 function setup() {
     createCanvas(400, 400);
     // Set the initial position of the head to center of the canvas
     headX = width / 2;
     headY = height / 2;
+
+    // initial position
+    eyebrowY1 = headY - headSize / 5 - 30;
+    eyebrowY2 = headY - headSize / 5 - 30;
+    // intital direction
+    eyebrowDirection1 = 1;
+    eyebrowDirection2 = -1;
 }
 
 function draw() {
@@ -22,6 +34,15 @@ function draw() {
     headSize += sizeDirection;
     if (headSize >= 250 || headSize <= 150) {
         sizeDirection *= -1; // Reverse the direction when reaching the size limits
+    
+    // update eyebrow postion
+    eyebrowY1 += eyebrowDirection1;
+    if (eyebrowY1 <= headY - headSize / 5 - 50 || eyebrowY1 >= headY - headSize / 5 - 10) {
+        eyebrowDirection1 *= -1; // Reverse direction when reaching limits
+    }
+    eyebrowY2 += eyebrowDirection2;
+    if (eyebrowY2 <= headY - headSize / 5 - 50 || eyebrowY2 >= headY - headSize / 5 - 10) {
+        eyebrowDirection2 *= -1;
     }
 
     //head
@@ -39,8 +60,8 @@ function draw() {
     var eyeOffset = headSize / 4;
     drawEye(headX - eyeOffset, headY - eyeOffset);
     drawEye(headX + eyeOffset, headY - eyeOffset);
-    drawEyebrows(headX - eyeOffset, headY - headSize / 5 - 30);
-    drawEyebrows(headX + eyeOffset, headY - headSize / 5 - 30);
+    drawEyebrows(headX - eyeOffset, eyebrowY1);
+    drawEyebrows(headX + eyeOffset, eyebrowY2);
     drawNose(headX, headY + headSize / 20);
     drawMouth(headX, headY + headSize / 4);
     drawMustache(headX, headY + headSize / 6);
@@ -112,5 +133,5 @@ function drawEyebrows(x, y) {
     strokeWeight(5);
     var eyebrowLength = 20;
     var eyebrowOffset = 10;
-    line(x - eyebrowOffset, y - 10, x + eyebrowOffset, y - 10);
+    line(x - eyebrowOffset, y, x + eyebrowOffset, y);
 }
