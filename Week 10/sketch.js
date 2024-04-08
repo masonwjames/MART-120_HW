@@ -1,7 +1,7 @@
 var headX;
 var headY;
-var headSize = 200; // inital head size
-var sizeDirection = 2; // direction of change
+var headSize = 200; // initial head size
+var sizeDirection = 2; // direction of head size change
 
 var eyebrowY1;
 var eyebrowY2;
@@ -18,38 +18,31 @@ var mustacheY;
 var mustacheDirectionX = 1;
 var mustacheDirectionY = 1;
 
-var titleSize = 32; // intial titile size
-var titleDirection = 0.2; // direction of change
-var titleX = 200; // intial x
-var titleY = 50; // intial y
-var titleSpeed = 2; // movement speed for title
+var titleSize = 32; // initial title size
+var titleDirection = 0.2; // direction of title size change
+var titleX = 200; // initial x-coordinate of the title
+var titleY = 50; // initial y-coordinate of the title
+var titleSpeed = 2; // speed of title movement
 
 function setup() {
     createCanvas(400, 400);
-    // center canvas
+    // set initial positions and directions
     headX = width / 2;
     headY = height / 2;
-
-    // intial eyebrow position
     eyebrowY1 = headY - headSize / 5 - 30;
     eyebrowY2 = headY - headSize / 5 - 30;
-    // intitial direction 
     eyebrowDirection1 = 1; // up
     eyebrowDirection2 = -1; // down
-
-    // intial beanie position
     beanieX = headX;
     beanieY = headY - headSize / 2 - 10;
-    beanieColor = color(random(100, 150), random(50, 100), random(0)); // Initial brown color
-
-    // intial mustache position
+    beanieColor = color(random(100, 150), random(50, 100), random(0)); // initial brown color
     mustacheX = headX;
     mustacheY = headY + headSize / 6;
 }
 
 function draw() {
     background(200);
-    //title
+    // title
     fill(0);
     textSize(titleSize);
     textAlign(CENTER, TOP);
@@ -61,24 +54,24 @@ function draw() {
         titleDirection *= -1; 
     }
 
-    // square title pattern
+    // update title position in a square pattern
     titleX += titleSpeed;
     titleY += titleSpeed;
 
     if (titleX + textWidth("SELF PORTRAIT") >= width || titleX <= 0) {
         titleSpeed *= -1; 
     }
-    if (titleY >= height || titleY <= 0) {
+    if (titleY + titleSize >= height || titleY <= 0) {
         titleSpeed *= -1; 
     }
 
     // update head size
     headSize += sizeDirection;
     if (headSize >= 250 || headSize <= 150) {
-        sizeDirection *= -1; /
+        sizeDirection *= -1; 
     }
 
-    // update eyebrow position
+    // update eyebrow positions
     eyebrowY1 += eyebrowDirection1;
     if (eyebrowY1 <= headY - headSize / 5 - 50 || eyebrowY1 >= headY - headSize / 5 - 10) {
         eyebrowDirection1 *= -1; 
@@ -92,7 +85,7 @@ function draw() {
     beanieX += beanieDirectionX;
     if (beanieX <= headX - headSize / 2 || beanieX >= headX + headSize / 2) {
         beanieDirectionX *= -1; 
-        beanieColor = color(random(100, 150), random(50, 100), random(0)); // Change color randomly
+        beanieColor = color(random(100, 150), random(50, 100), random(0)); // change color randomly
     }
 
     // update mustache position
@@ -105,18 +98,34 @@ function draw() {
         mustacheDirectionY *= -1; 
     }
 
-    //head
+    // draw elements
+    drawHead();
+    drawBeanie();
+    drawFacialFeatures();
+    drawEar(headX - headSize / 2, headY);
+    drawEar(headX + headSize / 2, headY);
+
+    // name
+    fill(0);
+    textSize(20);
+    textAlign(CENTER, BOTTOM);
+    text("MASON RUSEK", width / 2, height - 20);
+}
+
+function drawHead() {
     fill(240, 200, 150);
     var cornerRadius = 20;
     rectMode(CENTER);
     rect(headX, headY, headSize, headSize, cornerRadius);
+}
 
-    //beanie
+function drawBeanie() {
     fill(beanieColor);
     var beanieSize = headSize + 20;
     ellipse(beanieX, beanieY, beanieSize, headSize / 3);
+}
 
-    //face
+function drawFacialFeatures() {
     var eyeOffset = headSize / 4;
     drawEye(headX - eyeOffset, headY - eyeOffset);
     drawEye(headX + eyeOffset, headY - eyeOffset);
@@ -125,14 +134,6 @@ function draw() {
     drawNose(headX, headY + headSize / 20);
     drawMouth(headX, headY + headSize / 4);
     drawMustache(mustacheX, mustacheY);
-    drawEar(headX - headSize / 2, headY);
-    drawEar(headX + headSize / 2, headY);
-
-    //name
-    fill(0);
-    textSize(20);
-    textAlign(CENTER, BOTTOM);
-    text("MASON RUSEK", width / 2, height - 20);
 }
 
 function drawEye(x, y) {
@@ -161,7 +162,7 @@ function drawMouth(x, y) {
     var mouthWidth = 100;
     var mouthHeight = 50;
     ellipse(x, y, mouthWidth, mouthHeight);
-    //draw teeth
+    // draw teeth
     fill(255);
     var teethSize = 30;
     var teethOffset = 35;
