@@ -63,8 +63,12 @@ function draw() {
 
     // Update title position in a square pattern
     titleX += titleSpeed;
-    if (titleX > width - 200 || titleX < 200) {
-        titleY += titleSpeed;
+    titleY += titleSpeed;
+
+    if (titleX + textWidth("SELF PORTRAIT") >= width || titleX <= 0) {
+        titleSpeed *= -1; // Reverse direction when hitting canvas edge
+    }
+    if (titleY >= height || titleY <= 0) {
         titleSpeed *= -1; // Reverse direction when hitting canvas edge
     }
 
