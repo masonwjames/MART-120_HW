@@ -8,13 +8,14 @@ var eyebrowY2;
 var eyebrowDirection1;
 var eyebrowDirection2;
 
+var beanieY;
+var beanieDirectionY = 1;
+var beanieColor;
+
 var mustacheX;
 var mustacheY;
 var mustacheDirectionX = 1;
 var mustacheDirectionY = 1;
-
-var hairY;
-var hairColor;
 
 function setup() {
     createCanvas(400, 400);
@@ -29,13 +30,13 @@ function setup() {
     eyebrowDirection1 = 1; // Up
     eyebrowDirection2 = -1; // Down
 
+    // Set initial position and color of the beanie
+    beanieY = headY - headSize / 2 - 10;
+    beanieColor = color(random(255), random(255), random(255));
+
     // Set initial position of the mustache
     mustacheX = headX;
     mustacheY = headY + headSize / 6;
-
-    // Set initial position and color of the hair
-    hairY = headY - headSize / 2 - 50;
-    hairColor = color(random(255), random(255), random(255));
 }
 
 function draw() {
@@ -62,6 +63,13 @@ function draw() {
         eyebrowDirection2 *= -1; // Reverse direction when reaching limits
     }
 
+    // Update beanie position and color
+    beanieY += beanieDirectionY;
+    if (beanieY <= headY - headSize / 2 - 20 || beanieY >= headY - headSize / 2) {
+        beanieDirectionY *= -1; // Reverse direction when hitting the limits
+        beanieColor = color(random(255), random(255), random(255)); // Change color randomly
+    }
+
     // Update mustache position
     mustacheX += mustacheDirectionX;
     mustacheY += mustacheDirectionY;
@@ -72,12 +80,6 @@ function draw() {
         mustacheDirectionY *= -1; // Reverse direction when reaching limits
     }
 
-    // Update hair position and color
-    hairY += random(-1, 1);
-    if (hairY <= headY - headSize / 2 - 50 || hairY >= headY - headSize / 2 - 30) {
-        hairColor = color(random(255), random(255), random(255)); // Change color randomly when reaching limits
-    }
-
     //head
     fill(240, 200, 150);
     var cornerRadius = 20;
@@ -85,9 +87,9 @@ function draw() {
     rect(headX, headY, headSize, headSize, cornerRadius);
 
     //beanie
-    fill(51, 25, 0);
+    fill(beanieColor);
     var beanieSize = headSize + 20;
-    ellipse(headX, headY - headSize / 2 - 10, beanieSize, headSize / 3);
+    ellipse(headX, beanieY, beanieSize, headSize / 3);
 
     //face
     var eyeOffset = headSize / 4;
@@ -100,10 +102,6 @@ function draw() {
     drawMustache(mustacheX, mustacheY);
     drawEar(headX - headSize / 2, headY);
     drawEar(headX + headSize / 2, headY);
-
-    // Draw hair
-    fill(hairColor);
-    rect(headX - headSize / 2 + 10, hairY, headSize - 20, 50, 20);
 
     //name
     fill(0);
