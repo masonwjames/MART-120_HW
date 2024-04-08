@@ -24,8 +24,7 @@ var titleX = 200; // intial x
 var titleY = 50; // intial y
 var titleSpeed = 2; // movement speed for title
 
-function setup() 
-{
+function setup() {
     createCanvas(400, 400);
     // center canvas
     headX = width / 2;
@@ -48,8 +47,7 @@ function setup()
     mustacheY = headY + headSize / 6;
 }
 
-function draw() 
-{
+function draw() {
     background(200);
     //title
     fill(0);
@@ -102,6 +100,7 @@ function draw()
     mustacheY += mustacheDirectionY;
     if (mustacheX <= headX - headSize / 6 || mustacheX >= headX + headSize / 6) {
         mustacheDirectionX *= -1; 
+    }
     if (mustacheY <= headY + headSize / 6 - 10 || mustacheY >= headY + headSize / 6 + 10) {
         mustacheDirectionY *= -1; 
     }
@@ -136,8 +135,7 @@ function draw()
     text("MASON RUSEK", width / 2, height - 20);
 }
 
-function drawEye(x, y) 
-{
+function drawEye(x, y) {
     fill(255);
     var eyeSize = 60;
     ellipse(x, y, eyeSize, eyeSize);
@@ -149,8 +147,7 @@ function drawEye(x, y)
     ellipse(x, y, irisSize, irisSize);
 }
 
-function drawNose(x, y) 
-{
+function drawNose(x, y) {
     fill(215, 175, 125);
     stroke(0);
     strokeWeight(2);
@@ -158,8 +155,7 @@ function drawNose(x, y)
     triangle(x, y - noseSize / 2, x - noseSize / 2, y + noseSize, x + noseSize / 2, y + noseSize);
 }
 
-function drawMouth(x, y) 
-{
+function drawMouth(x, y) {
     fill(255, 192, 203);
     noStroke();
     var mouthWidth = 100;
@@ -174,16 +170,14 @@ function drawMouth(x, y)
     rect(x + teethOffset, y - 5, teethSize, teethSize, 5);
 }
 
-function drawMustache(x, y) 
-{
+function drawMustache(x, y) {
     fill(0);
     var mustacheWidth = 100;
     var mustacheHeight = 20;
     rect(x, y, mustacheWidth, mustacheHeight, 5);
 }
 
-function drawEar(x, y) 
-{
+function drawEar(x, y) {
     fill(240, 200, 150);
     var earWidth = 40;
     var earHeight = 60;
@@ -194,8 +188,7 @@ function drawEar(x, y)
     ellipse(x, y + earHeight / 2.5, studSize, studSize);
 }
 
-function drawEyebrows(x, y) 
-{
+function drawEyebrows(x, y) {
     stroke(0);
     strokeWeight(5);
     var eyebrowLength = 20;
