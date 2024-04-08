@@ -8,6 +8,14 @@ var eyebrowY2;
 var eyebrowDirection1;
 var eyebrowDirection2;
 
+var mustacheX;
+var mustacheY;
+var mustacheDirectionX = 1;
+var mustacheDirectionY = 1;
+
+var hairY;
+var hairColor;
+
 function setup() {
     createCanvas(400, 400);
     // Set the initial position of the head to center of the canvas
@@ -20,6 +28,14 @@ function setup() {
     // Set initial direction of movement for the eyebrows
     eyebrowDirection1 = 1; // Up
     eyebrowDirection2 = -1; // Down
+
+    // Set initial position of the mustache
+    mustacheX = headX;
+    mustacheY = headY + headSize / 6;
+
+    // Set initial position and color of the hair
+    hairY = headY - headSize / 2 - 50;
+    hairColor = color(random(255), random(255), random(255));
 }
 
 function draw() {
@@ -46,6 +62,22 @@ function draw() {
         eyebrowDirection2 *= -1; // Reverse direction when reaching limits
     }
 
+    // Update mustache position
+    mustacheX += mustacheDirectionX;
+    mustacheY += mustacheDirectionY;
+    if (mustacheX <= headX - headSize / 6 || mustacheX >= headX + headSize / 6) {
+        mustacheDirectionX *= -1; // Reverse direction when reaching limits
+    }
+    if (mustacheY <= headY + headSize / 6 - 10 || mustacheY >= headY + headSize / 6 + 10) {
+        mustacheDirectionY *= -1; // Reverse direction when reaching limits
+    }
+
+    // Update hair position and color
+    hairY += random(-1, 1);
+    if (hairY <= headY - headSize / 2 - 50 || hairY >= headY - headSize / 2 - 30) {
+        hairColor = color(random(255), random(255), random(255)); // Change color randomly when reaching limits
+    }
+
     //head
     fill(240, 200, 150);
     var cornerRadius = 20;
@@ -65,9 +97,13 @@ function draw() {
     drawEyebrows(headX + eyeOffset, eyebrowY2);
     drawNose(headX, headY + headSize / 20);
     drawMouth(headX, headY + headSize / 4);
-    drawMustache(headX, headY + headSize / 6);
+    drawMustache(mustacheX, mustacheY);
     drawEar(headX - headSize / 2, headY);
     drawEar(headX + headSize / 2, headY);
+
+    // Draw hair
+    fill(hairColor);
+    rect(headX - headSize / 2 + 10, hairY, headSize - 20, 50, 20);
 
     //name
     fill(0);
