@@ -18,6 +18,12 @@ var mustacheY;
 var mustacheDirectionX = 1;
 var mustacheDirectionY = 1;
 
+var titleSize = 32; // Initial size of the title
+var titleDirection = 1; // Direction of size change
+var titleX = 200; // Initial x-coordinate of the title
+var titleY = 50; // Initial y-coordinate of the title
+var titleSpeed = 2; // Speed of title movement
+
 function setup() {
     createCanvas(400, 400);
     // Set the initial position of the head to center of the canvas
@@ -45,9 +51,22 @@ function draw() {
     background(200);
     //title
     fill(0);
-    textSize(32);
+    textSize(titleSize);
     textAlign(CENTER, TOP);
-    text("SELF PORTRAIT", width / 2, 20);
+    text("SELF PORTRAIT", titleX, titleY);
+
+    // Update title size
+    titleSize += titleDirection;
+    if (titleSize >= 40 || titleSize <= 28) {
+        titleDirection *= -1; // Reverse the direction when reaching the size limits
+    }
+
+    // Update title position in a square pattern
+    titleX += titleSpeed;
+    if (titleX > width - 200 || titleX < 200) {
+        titleY += titleSpeed;
+        titleSpeed *= -1; // Reverse direction when hitting canvas edge
+    }
 
     // Update head size
     headSize += sizeDirection;
