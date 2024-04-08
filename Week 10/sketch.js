@@ -19,7 +19,7 @@ var mustacheDirectionX = 1;
 var mustacheDirectionY = 1;
 
 var titleSize = 32; // Initial size of the title
-var titleDirection = 1; // Direction of size change
+var titleDirection = 0.2; // Direction of size change
 var titleX = 200; // Initial x-coordinate of the title
 var titleY = 50; // Initial y-coordinate of the title
 var titleSpeed = 2; // Speed of title movement
